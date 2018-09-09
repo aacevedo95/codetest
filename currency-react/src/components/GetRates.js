@@ -37,15 +37,16 @@ export default class GetRates extends Component {
       symbol: this.state.to,
       date: this.state.date
     })
-      .then(function (response) {
-        console.log(response.data);
-        return(<p>{response.data}</p>)
+      .then((response) => {
+        console.log('response: ', response);
+        this.setState({ result: response });
       })
-      .catch(function (error) {
+      .catch((error) => {
         console.log(error);
       });
   }
   render() {
+    console.log('Results state: ', this.state.result)
     return (
       <div>
         <p>Amount</p>
@@ -55,14 +56,16 @@ export default class GetRates extends Component {
         <p>To</p>
         <input onChange={this.handleToChanged} />
         <p>Date</p>
-        <input onChange={this.handleDateChanged} type="date"/>
+        <input onChange={this.handleDateChanged} type="date" />
         <br />
         <button onClick={this.handleSubmit}>Submit</button>
         <p>Result </p>
-        {(this.state.result !== undefined ?
-          <p>{this.state.result}</p>
+        {(this.state.result === undefined ?
+          <p>
+            {this.state.result.amount}
+          </p>
           :
-          <p>N/A</p>
+          <p>DEBUG: Console will have value of result</p>
         )}
       </div>
     )

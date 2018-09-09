@@ -12,6 +12,7 @@ class App extends Component {
           <h1 className="App-title">
             Welcome to the MyStrengthBook Code Test!
           </h1>
+          <p>Thank you for the opportunity!</p>
         </header>
         <GetRates />
       </div>

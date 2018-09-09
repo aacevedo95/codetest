@@ -110,6 +110,11 @@ const self = module.exports = {
 				self.sendResponse(res, 403, 'Please provide the date as a string');
 				return;
 			}
+			//Validates if the date entered is an instance of Date.
+			if (!data.date instanceof Date) {
+				self.sendResponse(res, 403, 'Please provide the a valid date');
+				return;
+			}
 			var date = data.date;
 		} else {
 			var date = 'latest';
