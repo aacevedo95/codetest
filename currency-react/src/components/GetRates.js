@@ -39,7 +39,7 @@ export default class GetRates extends Component {
     })
       .then((response) => {
         console.log('response: ', response);
-        this.setState({ result: response });
+        this.setState({ result: response.data });
       })
       .catch((error) => {
         console.log(error);
@@ -60,9 +60,13 @@ export default class GetRates extends Component {
         <br />
         <button onClick={this.handleSubmit}>Submit</button>
         <p>Result </p>
-       
+        {(this.state.result !== undefined ?
+          <p>
+            {this.state.result.amount}
+          </p>
+          :
           <p>DEBUG: Console will have value of result</p>
-        
+        )}
       </div>
     )
   }
