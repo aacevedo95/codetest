@@ -60,9 +60,9 @@ export default class GetRates extends Component {
         <br />
         <button onClick={this.handleSubmit}>Submit</button>
         <p>Result </p>
-        {(this.state.result === undefined ?
+        {(this.state.result !== undefined ?
           <p>
-            {this.state.result.amount}
+            {this.state.result}
           </p>
           :
           <p>DEBUG: Console will have value of result</p>
